@@ -8,8 +8,9 @@ import { tileState } from 'src/utils';
 })
 export class TileComponent implements OnInit {
   @Input() id: number = 0;
-  @Input() status: string = '';
+  @Input() status: tileState = tileState.empty;
   cssclassofbox: string = 'box';
+  texto: string = '';
 
   constructor() {
 
@@ -42,7 +43,11 @@ export class TileComponent implements OnInit {
         this.cssclassofbox = this.cssclassofbox.concat(" bottom right")
         break;
     }
-    console.log(this.cssclassofbox);
+    this.texto = tileState.empty === this.status ? '' : tileState[this.status];
+  }
+
+  ngOnChanges():void{
+    this.texto = tileState.empty === this.status ? '' : tileState[this.status];
   }
 
 }

@@ -5,6 +5,30 @@
   transform: translate(-50%,-50%);
 }
 
+.historyButtons{
+  position: fixed;
+  top: 18%;
+  left: 75%;
+
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3{
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  button{
+    margin-bottom: 1em;
+    border: 3px solid white;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .gameContainer{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -16,4 +40,37 @@
   bottom: 0;
   left: 0;
   right: 0;
+  min-width: 145px;
+  min-height: 145px;
+}
+
+.tileWidthHeight{
+  width: 21.346vh;
+  height: 21.346vh;
+}
+
+.whiteCenteredText{
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1230px) {
+  .historyButtons{
+    display: block;
+    position:inherit;
+    flex-direction: row;
+    margin-top: 90vh;
+    margin-left: 30px;
+
+    div{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    button{
+      margin-right: 50px
+    }
+
+  }
 }

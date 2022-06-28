@@ -1,5 +1,17 @@
 <div class="center">
+  <h2 class="whiteCenteredText" *ngIf="win">{{isOWinner ? "The winner is O": "The winner is X"}}</h2>
+  <h2 class="whiteCenteredText" *ngIf="!win && !draw">{{isOturn ? "Turno de O" : "Turnos de X"}}</h2>
+  <h2 class="whiteCenteredText" *ngIf="!win && draw">Empate</h2>
   <div class="gameContainer">
-    <app-tile *ngFor="let tile of tiles" [id]="tile.getId()"></app-tile>
+    <app-tile class="tileWidthHeight" *ngFor="let tile of tilesarray[this.current]" [id]="tile.id" [status]="tile.status"
+    (click)="checkState(tile.id)"
+    ></app-tile>
+  </div>
+</div>
+<div class="historyButtons">
+  <h3 class="historytext">History:</h3>
+  <div>
+    <button *ngFor="let i of currentArrayBecauseNgForSucks" class="btn btn-default" (click)="changeStateTo(i)">
+      {{i === 1 ? 'Restart' : 'Go back to #' + (i-1)}}</button>
   </div>
 </div>
